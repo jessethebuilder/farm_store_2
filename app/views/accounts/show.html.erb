@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Has farm store accounts type:</strong>
+  <%= @account.has_farm_store_accounts_type %>
+</p>
+
+<p>
+  <strong>Has farm store accounts:</strong>
+  <%= @account.has_farm_store_accounts_id %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
