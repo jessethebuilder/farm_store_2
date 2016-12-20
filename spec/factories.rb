@@ -6,7 +6,7 @@ FactoryGirl.define do
 
   factory :price_variant do
     name
-    adjustment Random.rand(-100..100)
+    adjustment { Random.rand(-100..100) }
     product
   end
 
@@ -39,5 +39,6 @@ FactoryGirl.define do
   factory :order_item do
     product
     order
+    quantity { Random.rand(1..100) }
   end
 end

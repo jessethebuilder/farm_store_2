@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   validates :length,  numericality:{greater_than_or_equal_to: 0, allow_nil: true}
   validates :width,  numericality:{greater_than_or_equal_to: 0, allow_nil: true}
 
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
 
   has_many :options, dependent: :destroy
 
@@ -27,7 +27,7 @@ class Product < ApplicationRecord
 
   def total_negative_adjustments
     neg = self.price_variants.negative.inject(0){ |sum, pv| sum + pv.adjustment }
-    neg * -2 + neg
+    neg * (-2 + neg)
   end
 
   def neg_price_variants_cannot_exceed_price

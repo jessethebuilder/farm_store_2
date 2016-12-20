@@ -16,7 +16,7 @@ gemspec
 gem 'farm_slugs', :git => 'https://github.com/jessethebuilder/farm_slugs'
 
 group :test, :development do
-
+  gem 'faker'
   gem 'rspec-rails'
   gem 'database_cleaner'
   # gem 'database_cleaner', '~> 1.0.0rc'
@@ -25,6 +25,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'rails-controller-testing'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-rspec'

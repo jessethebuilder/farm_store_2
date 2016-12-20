@@ -20,4 +20,16 @@ RSpec.describe Order, type: :model do
       end
     end
   end
+
+  describe "Methods" do
+    describe '#total' do
+      it 'should return total of order items' do
+        5.times do
+          o.order_items << build(:order_item)
+        end
+
+        o.total.should == o.order_items.inject(0){ |sum, oi| oi.total + sum }
+      end
+    end
+  end
 end
